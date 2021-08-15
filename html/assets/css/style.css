@@ -1,0 +1,542 @@
+* {
+    box-sizing: border-box;
+    font-family: 'iransans';
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+.cards {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.cards__card {
+    border: 5px solid transparent;
+    border-radius: 1vw;
+    width: 18.0vw;
+    height: 40vh;
+    background-size: 100%;
+    background-position: center;
+    display: flex;
+    transition: all 100ms ease-out;
+    position: relative;
+    transform-style: preserve-3d;
+    will-change: transform;
+    margin-right: 40px;
+}
+.cards__card:last-child {
+    margin-right: 0;
+}
+.cards__card__image {
+    width: 100%;
+    max-height: 38vh;
+    position: absolute;
+    border-radius: 1vw;
+    border: 5px solid rgb(219, 135, 25);
+    top: 0;
+    left: 0;
+    z-index: 1;
+    vertical-align: top;
+}
+
+.cards__card__text {
+    background: linear-gradient(rgba(139, 75, 19, 0.9) 10%, #a76a1b 20%);
+    color: #8a91a5;
+    padding: 20px;
+    
+    width: 100%;
+    border-radius: 1vw;
+    text-align: center;
+    align-self: flex-end;
+    z-index: 2;
+    position: relative;
+}
+
+.cards__card__title {
+    color: #fcfcfc;
+    font-family: 'iransans';
+    font-size: 24px;
+    margin: 0;
+}
+.cards__card:hover {
+    border: 5px solid white;
+    transform: scale(1.1);
+}
+
+.buttons {
+   text-align: center;
+   margin-top: 5px;
+}
+
+.btn-hover {
+   width: 200px;
+   font-size: 16px;
+   font-weight: 600;
+   color: #fff;
+   cursor: pointer;
+   margin: 20px;
+   height: 55px;
+   text-align:center;
+   border: none;
+   background-size: 300% 100%;
+
+   border-radius: 50px;
+   moz-transition: all .4s ease-in-out;
+   -o-transition: all .4s ease-in-out;
+   -webkit-transition: all .4s ease-in-out;
+   transition: all .4s ease-in-out;
+}
+
+.btn-hover:hover {
+   background-position: 100% 0;
+   moz-transition: all .4s ease-in-out;
+   -o-transition: all .4s ease-in-out;
+   -webkit-transition: all .4s ease-in-out;
+   transition: all .4s ease-in-out;
+}
+
+.btn-hover:focus {
+   outline: none;
+}
+
+.btn-hover.color-1 {
+   background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
+   box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+}
+.btn-hover.color-2 {
+   background-image: linear-gradient(to right, #f5ce62, #e43603, #fa7199, #e85a19);
+   box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+}
+.btn-hover.color-3 {
+   background-image: linear-gradient(to right, #667eea, #764ba2, #6B8DD6, #8E37D7);
+   box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+}
+.btn-hover.color-4 {
+   background-image: linear-gradient(to right, #fc6076, #ff9a44, #ef9d43, #e75516);
+   box-shadow: 0 4px 15px 0 rgba(252, 104, 110, 0.75);
+}
+.btn-hover.color-5 {
+   background-image: linear-gradient(to right, #0ba360, #3cba92, #30dd8a, #2bb673);
+   box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+}
+.btn-hover.color-6 {
+   background-image: linear-gradient(to right, #009245, #FCEE21, #00A8C5, #D9E021);
+   box-shadow: 0 4px 15px 0 rgba(83, 176, 57, 0.75);
+}
+.btn-hover.color-7 {
+   background-image: linear-gradient(to right, #6253e1, #852D91, #A3A1FF, #F24645);
+   box-shadow: 0 4px 15px 0 rgba(126, 52, 161, 0.75);
+}
+.btn-hover.color-8 {
+   background-image: linear-gradient(to right, #29323c, #485563, #2b5876, #4e4376);
+   box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+}
+.btn-hover.color-9 {
+   background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+   box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+}
+.btn-hover.color-10 {
+       background-image: linear-gradient(to right, #ed6ea0, #ec8c69, #f7186a , #FBB03B);
+   box-shadow: 0 4px 15px 0 rgba(236, 116, 149, 0.75);
+}
+.btn-hover.color-11 {
+      background-image: linear-gradient(to right, #eb3941, #f15e64, #e14e53, #e2373f);  box-shadow: 0 5px 15px rgba(242, 97, 103, .4);
+}
+
+.buttons buttons{
+   display: none;
+}
+
+.btn-grad {
+   background-image: linear-gradient(to right, #ff00cc 0%, #333399 51%, #ff00cc 100%);
+}
+
+.btn-grad {
+   padding: 10px 15px;
+   text-align: center;
+   text-transform: uppercase;
+   transition: 0.5s;
+   background-size: 200% auto;
+   color: white;
+   border-radius: 5px;
+   border-style: none;
+   font-size: 12px;
+   margin: 1px;
+}
+
+.btn-grad2{
+   background-color: rgba(69, 209, 247, 0.6);
+   padding: 10px 15px;
+   text-align: center;
+   text-transform: uppercase;
+   transition: 0.5s;
+   background-size: 200% auto;
+   color: white;
+   border-radius: 5px;
+   border-style: none;
+   font-size: 12px;
+   margin: 1px;
+}
+
+.btn-grad3 {
+   background-color: rgba(247, 69, 99, 0.6);
+   padding: 10px 15px;
+   text-align: center;
+   text-transform: uppercase;
+   transition: 0.5s;
+   background-size: 200% auto;
+   color: white;
+   border-radius: 5px;
+   border-style: none;
+   font-size: 12px;
+   margin: 1px;
+}
+
+.btn-grad4 {
+   background-color: rgba(69, 247, 185, 0.6);
+   padding: 10px 15px;
+   text-align: center;
+   text-transform: uppercase;
+   transition: 0.5s;
+   background-size: 200% auto;
+   color: white;
+   border-radius: 5px;
+   border-style: none;
+   font-size: 12px;
+   margin: 1px;
+}
+
+.btn-grad5 {
+   background-color: rgba(85, 85, 85, 0.6);
+   padding: 10px 15px;
+   text-align: center;
+   text-transform: uppercase;
+   transition: 0.5s;
+   background-size: 200% auto;
+   color: white;
+   border-radius: 5px;
+   border-style: none;
+   font-size: 12px;
+   margin: 1px;
+}
+
+::-webkit-scrollbar {
+   width: 0.5vw;
+}
+
+::-webkit-scrollbar-track {
+   background: #f1f1f1; 
+}
+
+::-webkit-scrollbar-thumb {
+   background: #545454; 
+}
+
+.lobby {
+   background: url(../imgs/bg.jpg);
+   background-size: 100% auto;
+   width: 80vw;
+   height: 75vh;
+   margin: auto;
+   border-radius: 1vw;
+   border: 0.5vw solid #ffffff;
+}
+
+.header {
+   margin-left: 41%;
+   color: white;
+   padding-bottom: 7vh;
+   font-size: 1vw;
+   font-weight: normal;
+}
+
+.join {
+   margin: 0;
+   margin-top: -4vw;
+   position: absolute;
+   color: #ffffff;
+   font-size: 1vw;
+   font-weight: normal;
+}
+
+.lobby-password {
+   position: relative;
+   width: 100%;
+   height: 100%;
+   background: rgba(0,0,0,0.5);
+   text-align: center;
+}
+
+.inputs-pass {
+   position: absolute;
+   top: 18vh;
+}
+
+.elb {
+   margin-left: 16vw;
+   border-radius: 15vw;
+   padding: 0.3vw 0.5vw 0.3vw 0.5vw;
+   text-align: center;
+   color: #fff;
+}
+
+.enter {
+   background: #66b300;
+}
+
+.left {
+   background: #c10000;
+}
+
+.lobbeys {
+   margin: 0vw;
+   margin-bottom: 0.4vw;
+   overflow: hidden;
+   color: black;
+   background-color: #cacaca;
+   text-align: center;
+   font-size: 1.0vw;
+}
+
+.player {
+   margin: 0vw;
+   margin-bottom: 0.4vw;
+   overflow: hidden;
+   color: black;
+   background-color: #cacaca91;
+   text-align: center;
+   font-size: 1.2vw;
+}
+
+.player.ready{
+   background-color: #31d20370;
+}
+
+
+.box {
+   width: 21vw;
+   height: 48vh;
+   margin-left: 2.7vw;
+   background: rgba(0,0,0,0.5);
+   border: 1px solid #fff;
+   overflow-x: auto;
+   float: left;
+}
+
+.boxlobbeys {
+   width: 21vw;
+   height: 30vh;
+   background: rgba(0,0,0,0.5);
+   border: 1px solid #fff;
+   overflow-x: auto;
+   margin-top: 18vh;
+   padding: 0px;
+   margin-left: 28vw;
+}
+
+img {
+   -webkit-user-drag: none;
+   -khtml-user-drag: none;
+   -moz-user-drag: none;
+   -o-user-drag: none;
+}
+
+.map-img {
+   width: 21vw;
+   height: 29vh;
+   border: 0.5vw solid white;
+   border-radius: 10%;
+}
+
+.selectmap {
+   width: 32vw;
+   margin-left: 24vw;
+   text-align: center;
+   margin-top: 18vh;
+}
+
+.select {
+   margin: 1vw;
+   color: white;
+}
+
+.weapon {
+   height: 16vh;
+   max-width: 34vw;
+}
+
+.selector {
+   color: white;
+   font-size: 21vh;
+   margin-top: -27vh;
+}
+
+.sleft {
+   margin-left: -51vw;
+   position: relative;
+}
+
+#sbutton-left {
+   background-color: rgba(255, 255, 255, 0.0);
+   border: 0;
+   color: white;
+   font-size: 21vh;
+   outline: none;
+}
+
+.sright {
+   margin-left: 37vw;
+   margin-top: -50.2vh;
+}
+
+#sbutton-right {
+   background-color: rgba(255, 255, 255, 0.0);
+   border: 0;
+   color: white;
+   font-size: 21vh;
+   outline: none;
+}
+
+.weapon-title {
+   color: white;
+   font-size: 2vw;
+   padding-bottom: 1vh;
+}
+
+.weapon-name {
+   color: white;
+   text-transform: capitalize;
+   text-align: center;
+   margin-top: -20vh;
+   font-size: 2vw;
+}
+
+.weapon-price {
+   color: #00ce06;
+   font-size: 1.5vw
+}
+
+.title {
+   color: white;
+   font-size: 4vw;
+}
+
+p {
+   color: white;
+}
+
+.setting {
+   text-align: center;
+}
+
+#lpass {
+   width: 17vw;
+}
+
+input, select {
+   width: 20vw;
+   padding: 1vh 0.5vw;
+   margin: 1vh 2vw;
+   display: inline-block;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   box-sizing: border-box;
+}
+
+.form {
+   margin-top: 18vh;
+   margin-left: -5vh;
+}
+
+.form ul {
+   list-style-type: none;
+   list-style-position: outside;
+   margin:0px;
+   padding:0px;
+}
+
+.form li{
+   padding: 0px; 
+   position: relative;
+} 
+
+.form label {
+   color: white;
+   font-size: 1.5vw;
+   display: inline-block;
+   text-align: right;
+   width: 11vw;
+}
+
+.question {
+   margin-top: 20vh;
+}
+
+.contendertop {
+   float: right;
+   border-radius: 1vw;
+   color: white;
+}
+
+.processtTime {
+   margin: 0;
+   margin-left: 12vw;
+   font-size: 2vh;
+}
+
+.btn-pbtop-1 {
+ background-image: linear-gradient(
+   to right,
+   #57C84D 0%,
+   #83D475 51%,
+   #ABE098 100%
+ );
+}
+
+.btn-pbtop-1 {
+ margin: 0.7vw;
+ padding: 0.5vw 0.7vw;
+ text-align: center;
+ text-transform: uppercase;
+ background-size: 200% auto;
+ color: white;
+ border-radius: 50%;
+ border-style: none;
+}
+
+.text-style {
+ padding: 0.4vw;
+ padding-right: 0;
+ padding-left: 11vw; 
+ margin-right: 1vw;  
+ background-image: linear-gradient(to right,#57C84D 0%,#83D475 51%,#ABE098 100%);
+ border-radius: 2vh;
+ display: inline;
+ color: white;
+}
+
+.btn-pbtop {
+ background-image: linear-gradient(
+   to right,
+   #141e30 0%,
+   #243b55 51%,
+   #141e30 100%
+ );
+}
+
+.btn-pbtop {
+ margin: 0;
+ margin-left: 0.7vw;
+ padding: 0.5vw 0.7vw;
+ text-align: center;
+ text-transform: uppercase;
+ background-size: 200% auto;
+ color: white;
+ border-radius: 50%;
+ border-style: none;
+}

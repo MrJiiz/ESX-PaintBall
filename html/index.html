@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fa">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PaintBall</title>
+        <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+		<link href="https://mastercity.ir/files/css/iransanshttps.css" rel="stylesheet">
+        <link href="./assets/css/style.css" rel="stylesheet" type="text/css">
+        <script src="./assets/js/script.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div class="lobby" style="display: none; user-select: none;">
+            <div class="question" style="display: block;">
+                <div class="cards">
+				  <div class="cards__card" onclick="onCreateLobby()">
+					<img src="./assets/imgs/2.jpg" class="cards__card__image" />
+					<div class="cards__card__text">
+					  <h2 class="cards__card__title">ساخت گروه</h2>
+					  <p>ساخت یک گروه جدید جهت پیوست دیگران به گروه</p>
+					</div>
+				  </div>
+				  <div class="cards__card" onclick="onJoinLobby()">
+					<img src="./assets/imgs/1.jpg" class="cards__card__image" />
+					<div class="cards__card__text">
+					  <h2 class="cards__card__title">پیوستن به گروه</h2>
+					  <p>پیوستن به یک گروه ساخته شده توسط شهروندی دیگر</p>
+					</div>
+				  </div>
+				</div>
+            </div>
+
+            <div class="list" style="display: none;">
+                <div class="boxlobbeys">
+                    <div class="lobby-password" style="visibility: hidden;">
+                        <div class="inputs-pass">
+                            <label for="lpass" style="color: #fff;">رمز لابی</label>
+                            <input type="password" id="lpass" name="lpass" maxlength="10">
+                        </div>
+                    </div>
+                </div>
+				<div class="buttons">
+					<button onclick="onBackQuestion()" class="btn-hover color-11" >بازگشت</button>
+				</div>
+            </div>
+
+            <div name="createlobby" style="display: none;">
+                <div class="selectmap" style="display: block;">
+                    <img class="map-img" src="./assets/imgs/bank.png" alt="map-image">
+                    <br>
+                    <div class="select">
+                        <label for="map">لطفا یک منطقه را انتخاب کنید</label>
+
+                        <select onchange="onChangeMap()" id="map">
+                            <option value="bank">بانک مرکزی</option>
+                            <option value="bimeh">بیمه</option>							
+                            <option value="cargo">کارگو</option>
+                            <option value="skyscraper">آسمان خراش</option>
+                            <option value="javaheri">جواهری</option>							
+                            <option value="shop1">فروشگاه یک</option>														
+                            <option value="shop2">فروشگاه دو</option>																					
+                            <option value="1v1">تک به تک</option>																																																						
+                        </select>
+                    </div>
+                </div>
+
+                <div class="selectmap weapon-select" style="display: none;">
+                    <p class="weapon-title">انتخاب اسلحه</p>
+                    <img class="weapon" src="./assets/weapons/advancedrifle.png" alt="map-image">
+                    <p class="selector sleft"><button onclick="LeftWeaponButton()" id="sbutton-left"><span><</span></button></p>
+                    <p class="selector sright"><button onclick="RightWeaponButton()" id="sbutton-right"><span>></span></button></p>
+                    <p id="advancedrifle" class="weapon-name">advancedrifle</p>
+                </div>
+
+                <div class="setting" style="display: none; direction:rtl;">
+                    <div class="form">
+                        <ul>
+                            <li>
+                                <label for="lname">نام لابی:</label>
+                                <input type="text" id="lname" name="lname" value="LobbyName" minlength="3" maxlength="15">
+                            </li>
+                            <li>
+                                <label for="round">تعداد راندها:</label>
+                                <input type="number" id="round" name="round" min="1" max="10" value="5">
+                            </li>
+							<li>
+                                <label for="round">جلیقه ضد گلوله:</label>
+                                <input type="number" id="armor" name="armor" min="0" max="100" value="50">
+                            </li>
+							<li>
+                                <label for="headbox">HeadBox:</label>
+                                <select id="headbox">
+									<option value="1" selected="selected">فعال</option>
+									<option value="0">غیرفعال</option>
+								</select>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+				
+				<div class="buttons">
+					<button id="cancelButton" onclick="onCancel()" class="btn-hover color-11">انصراف</button>
+					<button id="backButton" onclick="onBack()" class="btn-hover color-11" style="display: none;">بازگشت</button>
+					<button id="nextButton" onclick="onNext()" class="btn-hover color-5">بعدی</button>
+					<button id="submitButton" onclick="onSubmit()" class="btn-hover color-5" style="display: none;">ثبت</button>
+				</div>
+            </div>
+            
+            <div name="main" style="display: none;">
+                <div class="box joiners">
+                    <h4 class="header join">بازیکنان ملحق شده</h4>
+                </div>
+
+                <div class="box teamone">
+                    <h4 class="header join">گروه یک</h1>
+                    <h4 class="header join elb enter" id="TM-1" onclick="onJoin(this.id)">پیوستن</h4>
+                </div>
+
+                <div class="box teamtwo">
+                    <h4 class="header join">گروه دو</h4>
+                    <h4 class="header join elb enter" id="TM-2" onclick="onJoin(this.id)">پیوستن</h4>
+                </div>
+
+                <h1 style="margin-top: 12vw; text-align: center; color: green;"><h1>
+				<h1 style="margin-top: 12.2vw; text-align: center; color: green;"></h1>
+
+                <div style='text-align:center;color: #fff;'>
+					<div onclick="onLeave()" class="footer buttom leave">
+                    <h4 class="buttom-text">خروج</h4>
+					</div>
+
+					<div id="ReadyButton" onclick="onReady()">
+						<h4 class="buttom-text">آماده</h4>
+					</div>
+
+					<div id="UnReadyButton" onclick="onUnready()" style="display: none;">
+						<h4 class="buttom-text">آماده نیستم</h4>
+					</div>
+
+					<div id="startButton" onclick="onStart()">
+						<h4 class="buttom-text">شروع</h4>
+					</div>
+				</div>
+            </div>
+        </div>
+		
+        <div class="gamehud" style="display: none;background-color: transparent; box-shadow: transparent; background: transparent !important;">
+            <div style='position:absolute; left:0px;bottom: 18%;line-height:0.5;'>
+				<button class="btn-grad2" id="blueteam" style="display: none;">{BLUE TEAM}</button><BR>
+				<button class="btn-grad3" id="redteam" style="display: none;">{RED TEAM}</button><BR>
+				<button class="btn-grad4" id="timer" style="display: none;">7:00</button><BR>
+				<button class="btn-grad5" id="round" style="display: none;"></button><BR>
+			</div>
+
+			<div id="hud" class="contendertop" style="top: 3%;left: 0; !important; position: absolute;">
+				<div id="topcat1" style="display: none;">
+					<span id="top1" style="position: absolute; margin-top: 1.15vw !important; margin-left: 4.2vw;">No-One</span>
+					<button id="top1btn" class="btn-pbtop-1">1</button>
+					<p id="top1a" class="text-style">
+					  <button id="top1b" class="btn-pbtop"><span>0</span></button>
+					</p>
+				</div>
+				<div id="topcat2" style="display: none;">				
+					<span id="top2" style="position: absolute; margin-top: 1.15vw !important; margin-left: 4.2vw;">No-One</span>
+					<button id="top2btn" class="btn-pbtop-1">2</button>
+					<p id="top2a" class="text-style">
+					  <button id="top2b" class="btn-pbtop"><span>0</span></button>
+					</p>
+				</div>
+				<div id="topcat3" style="display: none;">				
+					<span id="top3" style="position: absolute; margin-top: 1.15vw !important; margin-left: 4.2vw;">No-One</span>
+					<button id="top3btn" class="btn-pbtop-1">3</button>
+					<p id="top3a" class="text-style">
+					  <button id="top3b" class="btn-pbtop"><span>0</span></button>
+					</p>
+				</div>
+				<div id="topcat4" style="display: none;">				
+					<span id="top4" style="position: absolute; margin-top: 1.15vw !important; margin-left: 4.2vw;">No-One</span>
+					<button id="top4btn" class="btn-pbtop-1">4</button>
+					<p id="top4a" class="text-style">
+					  <button id="top4b" class="btn-pbtop"><span>0</span></button>
+					</p>
+				</div>
+				<div id="topcat5" style="display: none;">				
+					<span id="top5" style="position: absolute; margin-top: 1.15vw !important; margin-left: 4.2vw;">No-One</span>
+					<button id="top5btn" class="btn-pbtop-1">5</button>
+					<p id="top5a" class="text-style">
+					  <button id="top5b" class="btn-pbtop"><span>0</span></button>
+					</p>
+				</div>
+			</div>					
+        </div>
+    </body>
+</html>
